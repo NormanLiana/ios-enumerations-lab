@@ -7,6 +7,16 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 a) Define an enumeration called `iOSDeviceType` with member values `iPhone`, `iPad`, `iWatch`. Create a variable called `myDevice` and assign it one member value.
 
+```swift
+enum iOSDeviceType {
+case iPhone
+case iPad
+case iWatch
+}
+
+var myDevice = iOSDeviceType.iPhone
+```
+
 b) Adjust your code above so that `iPhone` and `iPad` have associated values of type String which represents the model number, eg: `iPhone("6 Plus")`. Use a switch case and let syntax to print out the model number of each device.
 
 
@@ -14,9 +24,72 @@ b) Adjust your code above so that `iPhone` and `iPad` have associated values of 
 
 a) Write an enum called `Shape` and give it cases for `triangle`, `rectangle`, `square`, `pentagon`, and `hexagon`.
 
+```swift
+enum Shape {
+case triangle
+case rectangle
+case square
+case pentagon
+case hexagon
+}
+```
 b) Write a method inside `Shape` that returns how many sides the shape has. Create a variable called `myFavoritePolygon` and assign it to one of the shapes above, then print out how many sides it has.
 
+```swift
+enum Shape {
+case triangle
+case rectangle
+case square
+case pentagon
+case hexagon
+func sidesOfShape() -> Int {
+switch myFavoritePolygon {
+case .triangle:
+return 3
+case .rectangle:
+return 4
+case .square:
+return 4
+case .pentagon:
+return 5
+case .hexagon:
+return 6
+}
+}
+}
+
+var myFavoritePolygon = Shape.pentagon
+print(myFavoritePolygon.sidesOfShape())
+```
+
 c) Re-write `Shape` so that each case has an associated value of type Int that will represent the length of the sides (assume the shapes are regular polygons so all the sides are the same length) and write a method inside that returns the perimeter of the shape.
+
+```swift
+enum Shape {
+case triangle(Int)
+case rectangle(Int)
+case square(Int)
+case pentagon(Int)
+case hexagon(Int)
+
+func perimeterOfShape() -> Int {
+switch self {
+case .triangle(let length):
+return 3 * length
+case .rectangle(let length):
+return 4 * length
+case .square(let length):
+return 4 * length
+case .pentagon(let length):
+return 5 * length
+case .hexagon(let length):
+return 6 * length
+}
+}
+}
+
+var myFavoritePolygon = Shape.pentagon(3).perimeterOfShape()
+```
 
 
 ## Question 3
