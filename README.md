@@ -96,7 +96,25 @@ var myFavoritePolygon = Shape.pentagon(3).perimeterOfShape()
 
 Write an enum called `OperatingSystem` and give it cases for `windows`, `mac`, and `linux`. Create an array of 10 `OperatingSystem` objects where each one is set to a random operating system. Then, iterate through the array and print out a message depending on the operating system.
 
+```swift
 
+//I'm confused on this one
+
+enum OperatingSystem {
+case windows
+case mac
+case linux
+
+var arrayOfOS = [OperatingSystem.windows, OperatingSystem.mac, OperatingSystem.windows, OperatingSystem.windows, OperatingSystem.linux, OperatingSystem.mac, OperatingSystem.mac, OperatingSystem.linux, OperatingSystem.linux, OperatingSystem.mac]
+
+for oS in arrayOfOS {
+switch self {
+case .windows:
+print("This is a Windows operating system")
+}
+}
+}
+```
 ## Question 4
 
 You are working on a game in which your character is exploring a grid-like map. You get the original location of the character and the steps he will take.
