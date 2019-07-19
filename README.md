@@ -19,6 +19,29 @@ var myDevice = iOSDeviceType.iPhone
 
 b) Adjust your code above so that `iPhone` and `iPad` have associated values of type String which represents the model number, eg: `iPhone("6 Plus")`. Use a switch case and let syntax to print out the model number of each device.
 
+```swift
+enum iOSDeviceType {
+case iPhone(String)
+case iPad(String)
+case iWatch
+
+
+func model() {
+switch self {
+case .iPhone(let x):
+print("This is an iPhone \(x)")
+case .iPad(let x):
+print("This is and iPad \(x)")
+default:
+print("This is an iWatch")
+}
+}
+}
+
+let myDevice = iOSDeviceType.iPhone("6 Plus")
+myDevice.model()
+
+```
 
 ## Question 2
 
@@ -98,22 +121,26 @@ Write an enum called `OperatingSystem` and give it cases for `windows`, `mac`, a
 
 ```swift
 
-//I'm confused on this one
-
 enum OperatingSystem {
 case windows
 case mac
 case linux
 
+}
+
 var arrayOfOS = [OperatingSystem.windows, OperatingSystem.mac, OperatingSystem.windows, OperatingSystem.windows, OperatingSystem.linux, OperatingSystem.mac, OperatingSystem.mac, OperatingSystem.linux, OperatingSystem.linux, OperatingSystem.mac]
 
 for oS in arrayOfOS {
-switch self {
+switch oS {
 case .windows:
 print("This is a Windows operating system")
+case .mac:
+print("This is a mac operating system")
+case .linux:
+print("This is a linux operating system")
 }
 }
-}
+
 ```
 ## Question 4
 
@@ -137,6 +164,7 @@ var location = (x: 0, y: 0)
 var steps: [Direction] = [.up, .up, .left, .down, .left]
 
 // your code here
+
 ```
 
 
@@ -180,12 +208,48 @@ b) Write a method in the `CoinType` enum that returns an Int representing how ma
 
 a) Write an enum called `DayOfWeek` to represent the days of the week with a raw value of type String.
 
+```swift
+enum DayOfWeek: (String) {
+case sunday = "Sunday"
+case monday = "Monday"
+case tuesday = "Tuesday"
+case wednesday = "Wednesday"
+case thursday = "Thursday"
+case friday = "Friday"
+case sauturday = "Saturday"
+}
+```
+
 b) Given the array `poorlyFormattedDays`, write code that will produce an array of enums that match the days.
 
 `let poorlyFormattedDays = ["MONDAY", "wednesday", "Sunday", "monday", "Tuesday", "WEDNESDAY", "thursday", "SATURDAY", "tuesday", "FRIDAy", "Wednesday", "Monday", "Friday", "sunday"]`
 
 c) Write a method in `DayOfWeek` called `isWeekend` that determines whether a day is part of the weekend or not and write code to calculate how many week days appear in `poorlyFormattedDays`.
 
+```swift
+// I didn't finish working on this one.
+
+enum DayOfWeek: (String) {
+case sunday = "Sunday"
+case monday = "Monday"
+case tuesday = "Tuesday"
+case wednesday = "Wednesday"
+case thursday = "Thursday"
+case friday = "Friday"
+case saturday = "Saturday"
+
+func isWeekend() {
+switch self {
+case .saturday:
+print("\(DayOfWeek.saturday) is on the weekend")
+case .sunday:
+print("\(DayOfWeek.sunday) is on the weekend")
+default:
+print("This is a weekday")
+}
+}
+}
+```
 
 ## Question 8
 
